@@ -8,4 +8,44 @@ public class LinkedList<T>
     public Node<T>? Tail { get; private set; }
     public int Count { get; private set; }
 
+    public LinkedList()
+    {
+        Head = null;
+        Tail = null;
+        Count = 0;
+    }
+
+    public IEnumerator<Node<T>> GetEnumerator()
+    {
+        Node<T>? current = Head;
+        while (current != null)
+        {
+            yield return current;
+            current = current.Next;
+        }
+    }
+
+    public void Append(T? value)
+    {
+        Node<T> newNode = new(value!);
+
+        if (Count == 0)
+        {
+            Head = newNode;
+            Tail = newNode;
+        }
+        else
+        {
+            if (Tail == null)
+            {
+                throw new NullReferenceException("Tail is null, cannot append to an empty list.");
+            }
+
+            Tail.Next = newNode;
+            newNode.Previous = Tail;
+            Tail = newNode;
+        }
+        Count++;
+    }
+
 }
