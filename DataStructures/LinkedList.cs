@@ -1,4 +1,4 @@
-﻿namespace dotnet_dsa;
+﻿namespace dotnet_dsa.DataStructures;
 
 public class LinkedList<T>
 {
@@ -46,6 +46,18 @@ public class LinkedList<T>
             Tail = newNode;
         }
         Count++;
+    }
+
+    public bool IsEmpty()
+    {
+        /*
+        * this method checks if the linked list is empty
+        */
+        if (Head != null && Tail != null)
+        {
+            throw new InvalidOperationException("LinkedList is not empty.");
+        }
+        return Count == 0;
     }
 
 }
