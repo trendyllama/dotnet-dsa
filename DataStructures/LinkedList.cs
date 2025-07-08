@@ -60,4 +60,9 @@ public class LinkedList<T>
         return Count == 0;
     }
 
+    public void Insert(T? value, int index)
+    {
+        throw new NotImplementedException("Insert method is not implemented yet.");
+    }
+
 }
