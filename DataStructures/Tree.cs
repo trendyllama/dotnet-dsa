@@ -6,10 +6,15 @@ public class TreeNode<T>
 {
 
     public List<TreeNode<T>>? Children { get; set; }
+    public TreeNode<T>? Parent { get; set; }
 
-    TreeNode()
+    public T? Value { get; set; }
+
+    TreeNode(T? value)
     {
         Children = [];
+        Parent = null;
+        Value = value;
     }
 
     public void AddChild(TreeNode<T> child)
@@ -86,6 +91,11 @@ public class Tree<T>
             {
                 Traverse();
             }
+        }
+        else
+        {
+            Console.WriteLine(root.Value);
+            return;
         }
     }
 

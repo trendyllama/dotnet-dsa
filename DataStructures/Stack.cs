@@ -1,5 +1,6 @@
 ﻿namespace dotnet_dsa.DataStructures;
 
+
 public class Stack<T>
 {
     Node<T>? Top { get; set; }
@@ -38,7 +39,7 @@ public class Stack<T>
         IncrementCount();
     }
 
-    public T? Pop()
+    public void Pop()
     {
         if (Top == null)
         {
@@ -54,7 +55,6 @@ public class Stack<T>
         }
 
         Count--;
-        return value;
     }
 
     public T? Peek()
@@ -65,6 +65,16 @@ public class Stack<T>
         }
 
         return Top.Value;
+    }
+
+    public void PeekAndPrint()
+    {
+        if (Top == null)
+        {
+            throw new InvalidOperationException("Stack is empty.");
+        }
+
+        Console.WriteLine(Top.Value);
     }
 
     public bool IsEmpty()
