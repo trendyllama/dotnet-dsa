@@ -1,9 +1,11 @@
 ﻿
+namespace dotnet_dsa;
+
 class Program
 {
     static void Main()
     {
-        var linkedList = new dotnet_dsa.DataStructures.LinkedList<int>();
+        var linkedList = new DataStructures.LinkedList<int>();
 
         linkedList.Append(1);
         linkedList.Append(2);
@@ -14,7 +16,7 @@ class Program
             Console.WriteLine(node.Value);
         }
 
-        var stack = new dotnet_dsa.DataStructures.Stack<int>();
+        var stack = new DataStructures.Stack<int>();
         stack.Push(1);
         stack.Push(2);
         stack.Push(3);

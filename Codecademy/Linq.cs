@@ -1,19 +1,15 @@
 
-using System;
-using System.Collections.Generic;
 
 namespace dotnet_dsa.Codecademy
 {
-   class Program
+   class ExampleLinq
     {
 
-        static void Main()
+        static void Run()
         {
-            List<double> marathons = new List<double>();
-            marathons.Add(144.07);
-            marathons.Add(143.12);
+            List<double> marathons = [144.07, 143.12];
 
-            List<double> marathons2 = new List<double>{ 144.07, 143.12, 146.73, 146.33, };
+            List<double> marathons2 = [144.07, 143.12, 146.73, 146.33,];
 
             // Do not delete the code below
             double time = marathons2[1];
