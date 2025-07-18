@@ -46,7 +46,6 @@ public class Stack<T>
             throw new InvalidOperationException("Stack is empty.");
         }
 
-        T? value = Top.Value;
         Top = Top.Next;
 
         if (Top != null)
