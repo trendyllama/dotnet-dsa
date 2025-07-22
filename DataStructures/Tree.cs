@@ -69,32 +69,32 @@ public class TreeNode<T>
 
 public class Tree<T>
 {
-    private TreeNode<T>? root;
+    private readonly TreeNode<T>? _root;
 
     Tree()
     {
-        root = null;
+        _root = null;
 
     }
 
     public void Traverse()
     {
-        if (root == null)
+        if (_root == null)
         {
-            throw new ArgumentNullException(nameof(root), "Root cannot be null.");
+            throw new ArgumentNullException(nameof(_root), "Root cannot be null.");
         }
 
 
-        if (root.Children != null)
+        if (_root.Children != null)
         {
-            foreach (var child in root.Children)
+            foreach (var child in _root.Children)
             {
                 Traverse();
             }
         }
         else
         {
-            Console.WriteLine(root.Value);
+            Console.WriteLine(_root.Value);
             return;
         }
     }
