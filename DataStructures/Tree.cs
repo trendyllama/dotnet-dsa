@@ -1,5 +1,5 @@
 ﻿
-namespace dotnet_dsa;
+namespace dotnet_dsa.DataStructures;
 
 
 public class TreeNode<T>
@@ -10,7 +10,7 @@ public class TreeNode<T>
 
     public T? Value { get; set; }
 
-    TreeNode(T? value)
+    public TreeNode(T? value)
     {
         Children = [];
         Parent = null;

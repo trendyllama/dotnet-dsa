@@ -7,6 +7,8 @@ public class Stack<T>
 
     public int Count { get; private set; }
 
+    public Node<T>? Current;
+
     public Stack()
     {
         Top = null;
@@ -81,16 +83,28 @@ public class Stack<T>
         return Count == 0;
     }
 
-    public IEnumerable<T> GetEnumerator()
+
+    public T? MoveNext()
+    {
+        if (Current == null)
+        {
+            throw new InvalidOperationException("No current node to move from.");
+        }
+
+        if (Current.Next == null)
+        {
+            throw new InvalidOperationException("No next node available.");
+        }
+
+        Current = Current.Next;
+        return Current.Value;
+    }
+
+    public IEnumerable<T?> GetEnumerator()
     {
         Node<T>? current = Top;
         while (current != null)
         {
-            if (current.Value == null)
-            {
-                throw new NullReferenceException("Node value is null.");
-            }
-
             yield return current.Value;
             current = current.Next;
         }

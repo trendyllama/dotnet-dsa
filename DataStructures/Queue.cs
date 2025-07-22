@@ -6,9 +6,8 @@ class Queue<T>
 {
     public Node<T>? head;
     public Node<T>? tail;
-
     private int size;
-
+    public Node<T>? Current;
 
     Queue()
     {
@@ -81,6 +80,17 @@ class Queue<T>
         return head.Value;
     }
 
+    public Node<T>? MoveNext()
+    {
+        if (Current == null)
+        {
+            throw new InvalidOperationException("No current node to move next from.");
+        }
+
+        Current = Current.Next;
+        return Current;
+    }
+
     public IEnumerable<T> GetEnumerator()
     {
         Node<T>? current = head;
@@ -88,12 +98,13 @@ class Queue<T>
         {
             if (current.Value == null)
             {
-                throw new InvalidOperationException("Queue contains null value.");
+                throw new InvalidOperationException("Current node value is null.");
             }
 
             yield return current.Value;
             current = current.Next;
         }
+
     }
 
 

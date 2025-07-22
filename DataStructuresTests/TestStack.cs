@@ -2,7 +2,7 @@
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace dotnet_dsa.DataStructuresTests;
+namespace DataStructuresTests;
 
 
 [TestClass]
@@ -11,7 +11,7 @@ public class TestStack
     [TestMethod]
     public void Run()
     {
-        var stack = new DataStructures.Stack<int>();
+        var stack = new dotnet_dsa.DataStructures.Stack<int>();
         stack.Push(1);
         stack.Push(2);
         stack.Push(3);

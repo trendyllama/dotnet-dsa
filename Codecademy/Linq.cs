@@ -2,10 +2,10 @@
 
 namespace dotnet_dsa.Codecademy
 {
-   class ExampleLinq
+    class ExampleLinq
     {
 
-        static void Run()
+        public static void Run()
         {
             List<double> marathons = [144.07, 143.12];
 
