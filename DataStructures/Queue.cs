@@ -1,35 +1,35 @@
 
-using dotnet_dsa.DataStructures;
+namespace dotnet_dsa.DataStructures;
 
 
-class Queue<T>
+public class Queue<T>
 {
-    public Node<T>? head;
-    public Node<T>? tail;
-    private int size;
+    public Node<T>? Head;
+    public Node<T>? Tail;
+    private int _size;
     public Node<T>? Current;
 
-    Queue()
+    public Queue()
     {
-        head = null;
-        tail = null;
-        size = 0;
+        Head = null;
+        Tail = null;
+        _size = 0;
     }
 
 
     public void IncrementSize()
     {
-        size++;
+        _size++;
     }
 
     public bool IsEmpty()
     {
-        if (head == null)
+        if (Head == null)
         {
             throw new InvalidOperationException("Queue is empty.");
         }
 
-        return size == 0;
+        return _size == 0;
     }
 
     public void Enqueue(T value)
@@ -40,44 +40,44 @@ class Queue<T>
         }
 
         Node<T> newNode = new(value);
-        if (tail == null)
+        if (Tail == null)
         {
-            head = newNode;
-            tail = newNode;
+            Head = newNode;
+            Tail = newNode;
         }
         else
         {
-            tail.Next = newNode;
-            tail = newNode;
+            Tail.Next = newNode;
+            Tail = newNode;
         }
         IncrementSize();
     }
 
     public void Dequeue()
     {
-        if (head == null)
+        if (Head == null)
         {
             throw new InvalidOperationException("Queue is empty.");
         }
 
-        head = head.Next;
+        Head = Head.Next;
 
-        if (head == null)
+        if (Head == null)
         {
-            tail = null;
+            Tail = null;
         }
 
-        size--;
+        _size--;
     }
 
     public T? Peek()
     {
-        if (head == null)
+        if (Head == null)
         {
             throw new InvalidOperationException("Queue is empty.");
         }
 
-        return head.Value;
+        return Head.Value;
     }
 
     public Node<T>? MoveNext()
@@ -93,7 +93,7 @@ class Queue<T>
 
     public IEnumerable<T> GetEnumerator()
     {
-        Node<T>? current = head;
+        Node<T>? current = Head;
         while (current != null)
         {
             if (current.Value == null)

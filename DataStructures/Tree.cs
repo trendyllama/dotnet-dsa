@@ -2,20 +2,13 @@
 namespace dotnet_dsa.DataStructures;
 
 
-public class TreeNode<T>
+public class TreeNode<T>(T? value)
 {
 
-    public List<TreeNode<T>>? Children { get; set; }
-    public TreeNode<T>? Parent { get; set; }
+    public List<TreeNode<T>>? Children { get; set; } = [];
+    public TreeNode<T>? Parent { get; set; } = null;
 
-    public T? Value { get; set; }
-
-    public TreeNode(T? value)
-    {
-        Children = [];
-        Parent = null;
-        Value = value;
-    }
+    public T? Value { get; set; } = value;
 
     public void AddChild(TreeNode<T> child)
     {

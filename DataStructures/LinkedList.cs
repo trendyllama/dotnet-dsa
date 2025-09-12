@@ -53,11 +53,7 @@ public class LinkedList<T>
         /*
         * this method checks if the linked list is empty
         */
-        if (Head != null && Tail != null)
-        {
-            throw new InvalidOperationException("LinkedList is not empty.");
-        }
-        return Count == 0;
+        return Head != null && Tail != null ? throw new InvalidOperationException("LinkedList is not empty.") : Count == 0;
     }
 
     public void Insert(T? value, int index)
